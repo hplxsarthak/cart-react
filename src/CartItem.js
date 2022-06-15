@@ -14,19 +14,40 @@ class CartItem extends React.Component {
     }
 
     increaseQuantity = () => {
-        console.log("this.state", this.state);
-        // setState() Form #1
+        // setState() Form #1 
+        // which do batching means it calls render function once 
+        // for all the multiple setState calls and will make multiple to single call
+        // which is the last call
         // this.setState({
         //     qty: this.state.qty + 1
         // })
 
         // setState() Form #2 - If prevState is required
+        // which do shallowing means it calls render function once  only but
+        // for all the multiple setState calls it will up to date the prevState and 
+        // will do further actions
         this.setState((prevState) => {
             return {
                 qty: prevState.qty + 1
             }
+        }, ()=> {
+            // we use this callback as setState is asynchronous so to know when is our state is updated we use this option
+            console.log("this.state:", this.state);
         })
     }
+
+    decreaseQuantity = () => {
+        const {qty} = this.state
+        if (qty === 0) {
+            return;
+        }
+
+        // setState() Form #1
+        this.setState({
+            qty: this.state.qty - 1
+        })
+    }
+
     render(){
         const {price, title, qty} = this.state;
         return (
@@ -50,6 +71,7 @@ class CartItem extends React.Component {
                             alt="decrease" 
                             className="action-icons" 
                             src="https://cdn-icons-png.flaticon.com/128/992/992683.png" 
+                            onClick={this.decreaseQuantity}
                         />
                         <img 
                             alt="delete" 
