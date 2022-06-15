@@ -15,13 +15,17 @@ class CartItem extends React.Component {
 
     increaseQuantity = () => {
         console.log("this.state", this.state);
+        // setState() Form #1
+        this.setState({
+            qty: this.state.qty + 1
+        })
     }
     render(){
         const {price, title, qty} = this.state;
         return (
             <div className="cart-item">
                 <div className="left-block">
-                    <img style={styles.image}/>
+                    <img style={styles.image} alt="" />
                 </div>
                 <div className="right-block">
                     <div style={{fontSize:25}}>{title}</div>
