@@ -16,8 +16,15 @@ class CartItem extends React.Component {
     increaseQuantity = () => {
         console.log("this.state", this.state);
         // setState() Form #1
-        this.setState({
-            qty: this.state.qty + 1
+        // this.setState({
+        //     qty: this.state.qty + 1
+        // })
+
+        // setState() Form #2 - If prevState is required
+        this.setState((prevState) => {
+            return {
+                qty: prevState.qty + 1
+            }
         })
     }
     render(){
