@@ -5,7 +5,7 @@ class CartItem extends React.Component {
         return (
             <div className="cart-item">
                 <div className="left-block">
-                    <img />
+                    <img style={styles.image}/>
                 </div>
                 <div className="right-block">
                     <div>Phone</div>
@@ -17,6 +17,14 @@ class CartItem extends React.Component {
                 </div>
             </div>
         )
+    }
+}
+
+const styles = {
+    image: {
+        height: 110,
+        width: 110,
+        borderRadius: 4
     }
 }
 
