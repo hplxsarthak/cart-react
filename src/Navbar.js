@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Navbar = (props) => {
-    console.log("jdj",props);
+    console.log("props in navbar",props);
   return (
     <div style={styles.nav}>
       <div style={styles.cartIconContainer}>
