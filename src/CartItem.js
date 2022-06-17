@@ -4,15 +4,15 @@ const CartItem = (props) => {
     console.log("this.props", props);
     const {price, title, qty} = props.product;
     const { 
-        onDecreaseQuantity, 
-        onIncreaseQuantity, 
         product, 
+        onDecreaseQuantity, 
+        onIncreaseQuantity,
         onDeleteProduct
     } = props;
     return (
         <div className="cart-item">
             <div className="left-block">
-                <img style={styles.image} alt="" />
+                <img style={styles.image} alt={title} src={product.img} />
             </div>
             <div className="right-block">
                 <div style={{fontSize:25}}>{title}</div>
